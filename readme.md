@@ -1,138 +1,139 @@
-# Welcome to Hypernode 🚀
+# Hypernode Showcase
 
-The **  (Hypernode)** is an innovative distributed system for sharing and managing computational power. This platform allows users to connect their machines, contribute their idle computational resources, and get rewarded while supporting tasks that require high-performance computing.
+> **Repository Status**: Transformed from Virtual-Agent (November 2024)
+> **Purpose**: Demonstrate Hypernode's LLM deployment capabilities through working examples
 
-At the heart of Hypernode lies **HypernodeAgent**, a virtual agent responsible for orchestrating the flow of tasks and computational resources. But Hypernode isn’t just a single agent—it’s an ecosystem of components working together to ensure efficiency, reliability, and engagement. Let’s dive into the architecture and explore the key elements!
+## Overview
 
----
+This repository showcases Hypernode's distributed GPU compute platform through public demonstrations and community tools. All components use Hypernode's public API to illustrate real-world usage patterns.
 
-## 🌟 HypernodeAgent: The Central Brain  
+## Components
 
-The **HypernodeAgent** is the core of Hypernode, managing the nodes, task queues, and resource allocation across the network. It ensures that all connected machines operate harmoniously to maximize efficiency.
+### 1. LLM Inference Demo (Phase 1 - In Development)
 
-Here’s how a node is registered in the system:  
+Interactive frontend for testing LLMs deployed on Hypernode's distributed GPU network.
 
-```java
-public void registerNode(String nodeId, int capacity) {
-    nodes.put(nodeId, new Node(nodeId, capacity));
-    System.out.println("[INFO] Node registered: " + nodeId + " with capacity " + capacity);
-}
+**Features:**
+- Live model inference testing
+- Real-time latency metrics
+- Cost-per-token comparison
+- Performance benchmarks vs centralized providers
+- SDK integration examples
+
+**Tech Stack:**
+- Frontend: React + Vite
+- Integration: Hypernode Backend API
+- Deployment: Static hosting
+
+**Status:** 🚧 Initial development
+
+### 2. Community Assistant (Phase 2 - Planned)
+
+Automated support bot for Discord and Twitter integration.
+
+**Planned Features:**
+- Network status announcements
+- Documentation Q&A via RAG
+- Job marketplace updates
+- Community support automation
+
+**Status:** 📋 Planned for Q1 2025
+
+### 3. On-Chain AI Agent (Phase 3 - Research)
+
+Autonomous agent with on-chain decision-making capabilities.
+
+**Research Areas:**
+- Trustless agent execution
+- Market pricing optimization
+- Autonomous task allocation
+- Blockchain-verified inference
+
+**Status:** 🔬 Research phase (dependent on platform stability)
+
+## Project Structure
+
+```
+hypernode-showcase/
+├── inference-demo/          # Phase 1: LLM testing interface
+│   ├── frontend/           # React application
+│   │   ├── src/
+│   │   │   ├── pages/      # Main demo pages
+│   │   │   └── components/ # Reusable UI components
+│   │   └── package.json
+│   └── docs/               # Usage examples and guides
+├── community-bot/          # Phase 2: Discord/Twitter bot
+│   └── README.md           # Implementation specs
+└── README.md              # This file
 ```
 
-This agent also monitors tasks and allocates them to available nodes based on their computational capacity. It uses real-time data from other components to optimize operations dynamically.
+## Development Principles
 
----
+All components follow Hypernode's core principles:
 
-## 📊 NetworkMonitor: Keeping the Network Healthy  
+- **Modular**: Each component is independently deployable
+- **Transparent**: Open-source with clear documentation
+- **Practical**: Real-world usage demonstrations
+- **Composable**: Can be integrated into other projects
 
-The **NetworkMonitor** supervises the health and performance of Hypernode in real-time. It tracks metrics like node activity, connectivity, and load distribution. If something goes wrong, the monitor immediately flags the issue to the HypernodeAgent for corrective action.
+## Getting Started
 
-For example, this method scans for inactive nodes:  
+### Prerequisites
 
-```java
-public void monitorNetwork() {
-    nodes.forEach((nodeId, node) -> {
-        if (!node.isActive()) {
-            System.err.println("[ALERT] Node " + nodeId + " is inactive!");
-        }
-    });
-}
+- Node.js 18+
+- Access to Hypernode Backend API
+- (Optional) Solana wallet for on-chain features
+
+### Running Inference Demo (Phase 1)
+
+```bash
+cd inference-demo/frontend
+npm install
+npm run dev
 ```
 
-This ensures that the network runs smoothly and any problems are quickly identified.
-
----
-
-## 🤖 SocialMediaBot: Engaging the Community  
-
-The **SocialMediaBot** bridges the gap between Hypernode and the wider world. It posts updates about the network's performance to platforms like Twitter or Mastodon, keeping users informed and attracting new contributors.
-
-Here’s an example of how the bot generates a status update:  
-
-```java
-public String generateStatusUpdate(HypernodeAgent agent) {
-    int activeNodes = agent.getNodes().size();
-    int pendingTasks = agent.getTaskQueue().size();
-    return String.format(
-        "Hypernode Status: %d active nodes, %d tasks pending. Join us and contribute your computational power!",
-        activeNodes, pendingTasks);
-}
+Configure API endpoint in `.env`:
+```
+VITE_HYPERNODE_API=https://api.hypernode.network
+VITE_SOLANA_RPC=https://api.devnet.solana.com
 ```
 
-Beyond sharing updates, the bot analyzes data from the network, providing valuable insights to HypernodeAgent for better decision-making.
+## Relationship to Main Project
+
+This showcase repository **demonstrates** Hypernode's capabilities. Core infrastructure lives in:
+
+- **hypernode-llm-deployer**: 8 Solana programs (jobs, nodes, staking, governance, etc.)
+- **hypernode-backend**: REST API and orchestration layer
+- **Hypernode-Site-App**: Official frontend application
+
+## Contributing
+
+Contributions welcome! This is a public demonstration project showing real Hypernode usage.
+
+**Areas for contribution:**
+- Additional model examples
+- Performance optimization
+- UI/UX improvements
+- Documentation enhancements
+
+## Roadmap
+
+- [x] Repository transformation (Nov 2024)
+- [ ] Phase 1: Inference demo MVP (Dec 2024)
+- [ ] Phase 1: Live metrics dashboard (Dec 2024)
+- [ ] Phase 2: Community bot (Q1 2025)
+- [ ] Phase 3: On-chain agent research (Q2 2025)
+
+## License
+
+MIT License - See [LICENSE](LICENSE) for details
+
+## Contact
+
+- Website: https://hypernodesolana.org
+- Email: contact@hypernodesolana.org
+- GitHub: https://github.com/Hypernode-sol
 
 ---
 
-## 🔒 AuthenticationService: Ensuring Security  
-
-Security is vital in a distributed network. The **AuthenticationService** ensures that only authorized users can access Hypernode. It manages user registrations, login credentials, and session tokens.  
-
-Here’s how the service logs in a user and issues a session token:  
-
-```java
-public String loginUser(String username, String password) {
-    String hashedPassword = userCredentials.get(username);
-    if (hashedPassword == null || !hashedPassword.equals(hashPassword(password))) {
-        System.err.println("[ERROR] Invalid credentials for username: " + username);
-        return null;
-    }
-
-    String sessionToken = generateSessionToken(username);
-    activeSessions.put(sessionToken, username);
-    System.out.println("[INFO] User logged in successfully: " + username);
-    return sessionToken;
-}
-```
-
-With this layer of security, Hypernode ensures safe and reliable access for its users.
-
----
-
-## 🌐 Bringing It All Together  
-
-The Hypernode ecosystem is designed to be modular, scalable, and efficient. Here’s how the components work together:  
-
-1. **HypernodeAgent** integrates data from the **NetworkMonitor** to manage tasks dynamically.  
-2. **SocialMediaBot** promotes network activity and provides real-time insights.  
-3. **AuthenticationService** ensures that access to the system is secure.  
-
-This synergy allows Hypernode to operate as a cohesive and robust distributed network for computational power sharing.
-
----
-
-## 🚀 Get Started  
-
-Interested in contributing to Hypernode or using its features? Follow these steps:  
-
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/your-repo/Hypernode.git
-   cd Hypernode
-   ```
-
-2. Explore the core components in the `src` directory:  
-   - `HypernodeAgent.java`
-   - `NetworkMonitor.java`
-   - `SocialMediaBot.java`
-   - `AuthenticationService.java`
-
-3. Build the project using your preferred IDE or compile it manually:  
-   ```bash
-   javac -d bin src/com/Hypernode/*.java
-   java -cp bin com.Hypernode.HypernodeAgent
-   ```
-
----
-
-## 🛠 Future Enhancements  
-
-Hypernode is constantly evolving. Here’s what’s next:  
-- **Enhanced data visualization**: Real-time dashboards for better insights.  
-- **AI-driven task allocation**: Smarter distribution of workloads.  
-- **Integration with blockchain**: Ensuring trust and transparency in transactions.
-
----
-
-Hypernode represents the future of distributed computing. By connecting machines across the globe, it enables efficient, scalable, and collaborative solutions to computational challenges.🚀  
-
---- 
+**Note**: This project is under active development. Features and timeline subject to change based on platform evolution.
