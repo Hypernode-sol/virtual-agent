@@ -178,7 +178,7 @@ hypernode:
 
 ## Development Roadmap
 
-### Phase 2.1 (Q1 2025)
+### Phase 2.1 (Q1 2026)
 - [ ] Discord bot MVP
   - [ ] Basic commands (status, nodes, jobs)
   - [ ] Network status monitoring
@@ -187,7 +187,7 @@ hypernode:
   - [ ] Index official docs
   - [ ] RAG implementation with LangChain
 
-### Phase 2.2 (Q1 2025)
+### Phase 2.2 (Q1 2026)
 - [ ] Twitter bot MVP
   - [ ] Automated daily stats posting
   - [ ] Mention monitoring and response
@@ -197,7 +197,7 @@ hypernode:
   - [ ] Price alerts
   - [ ] Node registration assistance
 
-### Phase 2.3 (Q2 2025)
+### Phase 2.3 (Q2 2026)
 - [ ] Multi-language support (Portuguese, Spanish, Chinese)
 - [ ] Analytics dashboard (bot usage metrics)
 - [ ] Community engagement features (polls, AMAs)
@@ -293,6 +293,6 @@ For bot-related issues:
 
 ---
 
-**Status**: 📋 Planned for Q1 2025
+**Status**: 📋 Planned for Q1 2026
 
 This specification will be updated as development progresses.

@@ -1,6 +1,6 @@
 # Hypernode Showcase
 
-> **Repository Status**: Transformed from Virtual-Agent (November 2024)
+> **Repository Status**: Transformed from Virtual-Agent (November 2025)
 > **Purpose**: Demonstrate Hypernode's LLM deployment capabilities through working examples
 
 ## Overview
@@ -37,7 +37,7 @@ Automated support bot for Discord and Twitter integration.
 - Job marketplace updates
 - Community support automation
 
-**Status:** 📋 Planned for Q1 2025
+**Status:** 📋 Planned for Q1 2026
 
 ### 3. On-Chain AI Agent (Phase 3 - Research)
 
@@ -118,11 +118,11 @@ Contributions welcome! This is a public demonstration project showing real Hyper
 
 ## Roadmap
 
-- [x] Repository transformation (Nov 2024)
-- [ ] Phase 1: Inference demo MVP (Dec 2024)
-- [ ] Phase 1: Live metrics dashboard (Dec 2024)
-- [ ] Phase 2: Community bot (Q1 2025)
-- [ ] Phase 3: On-chain agent research (Q2 2025)
+- [x] Repository transformation (Nov 2025)
+- [ ] Phase 1: Inference demo MVP (Dec 2025)
+- [ ] Phase 1: Live metrics dashboard (Dec 2025)
+- [ ] Phase 2: Community bot (Q1 2026)
+- [ ] Phase 3: On-chain agent research (Q2 2026)
 
 ## License
 
